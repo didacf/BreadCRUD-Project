@@ -12,8 +12,9 @@ app.get('/', (req, res) => {
 })
 
 // Breads
-const breadController = require=('./controllers/breads_controller.js')
+const breadController = require('./controllers/breads_controller.js')
 app.use('/breads', breadController)
+
 // LISTEN
 app.listen(PORT, () => {
   console.log('listening on port', PORT);
