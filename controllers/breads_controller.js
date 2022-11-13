@@ -46,6 +46,7 @@ breads.get('/:arrayIndex', (req, res) => {
 
 // CREATE
 breads.post('/', (req, res) => {
+  console.log(req.body)
   if(!req.body.image) {
       req.body.image = undefined 
   }

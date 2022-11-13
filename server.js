@@ -2,6 +2,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const methodOverride = require('method-override')
+const bodyParser = require('body-parser')
 
 
 // CONFIGURATION
@@ -12,6 +13,11 @@ mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopolo
   () => { console.log('connected to mongo: ', process.env.MONGO_URI) }
 )
 
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+
+// parse application/json
+app.use(bodyParser.json())
 
 // MIDDLEWARE
 app.use(express.static('public'))
